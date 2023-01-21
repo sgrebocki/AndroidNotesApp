@@ -42,8 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if(validate(regLogin, regEmail, regPassword, regRePassword)){
                     registerData = new RegisterData(regLogin, regPassword);
 
-                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
 
                     Toast.makeText(RegisterActivity.this, "Pomyślnie zarejestrowano!", Toast.LENGTH_SHORT).show();
                 }

@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(MainActivity.this, "Witaj "+ inputLogin + "!", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
-                        startActivity(intent);
+                        startActivity(new Intent(MainActivity.this, HomePageActivity.class));
                     }
                 }
             }
