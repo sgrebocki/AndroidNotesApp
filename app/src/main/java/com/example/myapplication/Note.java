@@ -1,6 +1,9 @@
 package com.example.myapplication;
 
-public class Note {
+import io.realm.Realm;
+import io.realm.RealmObject;
+
+public class Note extends RealmObject {
     String title;
     String description;
     long createdTime;

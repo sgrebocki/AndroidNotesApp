@@ -13,8 +13,8 @@ public class RegisterData {
         return Login;
     }
 
-    public void setLogin(String username) {
-        Login = username;
+    public void setLogin(String login) {
+        Login = login;
     }
 
     public String getPassword() {
