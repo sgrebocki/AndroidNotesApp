@@ -1,10 +1,10 @@
-package com.example.myapplication;
+package com.example.myapplication.data;
 
 public class RegisterData {
     private String Login;
     private String Password;
 
-    RegisterData(String login, String password) {
+    public RegisterData(String login, String password) {
         this.Login = login;
         this.Password = password;
     }

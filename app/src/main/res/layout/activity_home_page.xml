@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A257FF"
-    tools:context=".HomePageActivity">
+    tools:context=".activities.HomePageActivity">
 
     <TextView
         android:id="@+id/tvNoteTitle"
@@ -13,11 +13,12 @@
         android:layout_height="wrap_content"
         android:text="NOTATKI"
         android:textSize="30dp"
+        android:layout_margin="5dp"
         android:textColor="@color/white"
         android:textStyle="bold"/>
-    
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvNoteTitle"
+
+    <ListView
+        android:id="@+id/lvNotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/tvNoteTitle"
