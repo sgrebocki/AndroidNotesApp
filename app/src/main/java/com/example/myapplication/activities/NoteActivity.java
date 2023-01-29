@@ -2,7 +2,9 @@ package com.example.myapplication.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,8 +14,10 @@ import android.widget.EditText;
 
 import com.example.myapplication.R;
 
+import java.util.HashSet;
+
 public class NoteActivity extends AppCompatActivity {
-    EditText etInputTitle;
+//    EditText etInputTitle;
     EditText etInputDescription;
     Button btnSaveNote;
     int noteId;
@@ -23,7 +27,7 @@ public class NoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_note);
 
-        etInputTitle = findViewById(R.id.etInputTitle);
+//        etInputTitle = findViewById(R.id.etInputTitle);
         etInputDescription = findViewById(R.id.etInputDescription);
         btnSaveNote = findViewById(R.id.btnSaveNote);
 
@@ -31,14 +35,14 @@ public class NoteActivity extends AppCompatActivity {
         noteId = intent.getIntExtra("noteId", -1);
 
         if(noteId != -1){
-            (etInputTitle).setText(HomePageActivity.notes.get(noteId));
+            (etInputDescription).setText(HomePageActivity.notes.get(noteId));
         } else {
             HomePageActivity.notes.add("");
             noteId = HomePageActivity.notes.size() -1;
             HomePageActivity.arrayAdapter.notifyDataSetChanged();
         }
 
-        etInputTitle.addTextChangedListener(new TextWatcher() {
+        etInputDescription.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -49,6 +53,12 @@ public class NoteActivity extends AppCompatActivity {
                 HomePageActivity.notes.set(noteId, String.valueOf(s));
                 HomePageActivity.arrayAdapter.notifyDataSetChanged();
 
+                SharedPreferences sharedPreferences = getApplicationContext()
+                        .getSharedPreferences("com.example.myapplication.activities", Context.MODE_PRIVATE);
+
+                HashSet<String> set = new HashSet<>(HomePageActivity.notes);
+
+                sharedPreferences.edit().putStringSet("notes", set).apply();
             }
 
             @Override
@@ -61,7 +71,7 @@ public class NoteActivity extends AppCompatActivity {
         btnSaveNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String title = etInputTitle.getText().toString();
+//                String title = etInputTitle.getText().toString();
                 String description = etInputDescription.getText().toString();
 
                 startActivity(new Intent(NoteActivity.this, HomePageActivity.class));
