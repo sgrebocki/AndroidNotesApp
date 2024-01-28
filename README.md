@@ -41,7 +41,7 @@ Funkcjonalności wyżej wymienione dla użytkownika oraz:
 - Firebase - baza danych
 - Frontend w Android Studio
 
-## **6. Uruchomienie aplikacji**
+## **5. Uruchomienie aplikacji**
 
 - Aplikację należy uruchomić na środowisku programistycznym Android Studio
 - Następnie zainstalować urządzenie mobilne w aplikacji z Androidem w wersji minimum **8.1**
